@@ -1,10 +1,6 @@
 name: CI/CD Pipeline (macOS)
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   test:
@@ -25,8 +21,7 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: |
-          pytest
+        run: pytest
 
   build:
     needs: test
